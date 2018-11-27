@@ -1,0 +1,12 @@
+<config>
+    <modules>
+        <Nexttech_Alepay>
+            <active>true</active>
+            <codePool>local</codePool>
+            
+            <depends>
+              <Mage_Payment />
+            </depends>
+        </Nexttech_Alepay>
+    </modules>
+</config>

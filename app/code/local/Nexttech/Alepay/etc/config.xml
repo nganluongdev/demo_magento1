@@ -1,0 +1,78 @@
+<config>    
+  <modules>
+    <Nexttech_Alepay>
+      <version>1.0.0.0</version>
+    </Nexttech_Alepay>
+  </modules>
+  
+  <global>
+    <fieldsets>
+      <sales_convert_quote_payment>
+        <alepay_method>
+          <to_order_payment>*</to_order_payment>
+        </alepay_method>
+      </sales_convert_quote_payment>
+    </fieldsets>
+     
+    <helpers>
+      <alepay>
+        <class>Nexttech_Alepay_Helper</class>
+      </alepay>
+    </helpers>
+ 
+    <blocks>
+      <alepay>
+        <class>Nexttech_Alepay_Block</class>
+      </alepay>
+    </blocks>
+         
+    <models>
+      <alepay>
+        <class>Nexttech_Alepay_Model</class>
+        <resourceModel>alepay_resource</resourceModel>
+      </alepay>
+      <alepay_resource>
+        <class>Nexttech_Alepay_Model_Resource</class>
+        <entities>
+          <alepaytoken>
+            <table>alepay_token</table>
+          </alepaytoken>
+        </entities>
+      </alepay_resource>
+    </models>
+ 
+    <resources>
+      <alepay_setup>
+        <setup>
+          <module>Nexttech_Alepay</module>
+          <class>Nexttech_Alepay_Model_Resource_Setup</class>
+        </setup>
+      </alepay_setup>
+    </resources>
+  </global>
+ 
+  <default>
+    <payment>
+      <alepay>
+        <active>1</active>
+        <model>alepay/paymentmethod</model>
+        <order_status>pending</order_status>
+        <title>Alepay Payment Gateway</title>
+        <allowspecific>0</allowspecific>
+        <payment_action>sale</payment_action>
+      </alepay>
+    </payment>
+  </default>
+  
+  <frontend>
+    <routers>
+      <alepay>
+        <use>standard</use>
+        <args>
+          <module>Nexttech_Alepay</module>
+          <frontName>alepay</frontName>
+        </args>
+      </alepay>
+    </routers>  
+  </frontend>
+</config>
